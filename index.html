@@ -576,7 +576,7 @@
                 type="checkbox"
                 name="days"
                 id="day-12"
-                value="12/12 (Sexta-feira) — Visita Técnica Exclusiva: Casa de Barro & Complexo dos Padres Claretianos — Restauro vernacular e taipa de pilão (Vagas limitadas)"
+                value="12/12 (Sexta-feira) — Visita Técnica Exclusiva: Casa de Barro & Complexo dos Padres Claretianos — Prêmio Rino Levi 1983 e Prêmio Destaque na Bienal Internacional de 1993 (Vagas limitadas)"
                 class="mt-1 w-5 h-5 rounded accent-aeab-green shrink-0"
               />
               <div class="space-y-1">
@@ -588,7 +588,7 @@
                   Visita Técnica Exclusiva: Casa de Barro &amp; Complexo dos Padres Claretianos
                 </p>
                 <p class="text-xs sm:text-sm text-slate-600">
-                  Restauro vernacular e taipa de pilão • Vagas sujeitas à confirmação da organização.
+                  Prêmio Rino Levi 1983 e Prêmio Destaque na Bienal Internacional de 1993 • Vagas sujeitas à confirmação da organização.
                 </p>
               </div>
             </div>
@@ -940,88 +940,4 @@
         summaryDaysList.innerHTML = '';
         selectedDays.forEach((dayText) => {
           const li = document.createElement('li');
-          li.className = 'flex items-start gap-2 bg-white p-2.5 rounded-lg border border-slate-200';
-          li.innerHTML = `<span class="text-aeab-green font-bold">✓</span><span>${dayText}</span>`;
-          summaryDaysList.appendChild(li);
-        });
-
-        // Destaca aviso da Casa de Barro caso tenha sido selecionada
-        const casaBarroNote = document.getElementById('summary-casa-barro-note');
-        if (day12.checked) {
-          casaBarroNote.classList.remove('hidden');
-        } else {
-          casaBarroNote.classList.add('hidden');
-        }
-
-        // Monta texto plano para cópia
-        lastReceiptText = [
-          `COMPROVANTE DE INSCRIÇÃO — 1ª SEMANA DA ARQUITETURA E ENGENHARIA DA AEAB`,
-          `Protocolo: ${protocol}`,
-          `Datas: 08, 09 e 12 de dezembro de 2026 | Batatais/SP`,
-          `--------------------------------------------------`,
-          `Participante: ${fullName}`,
-          `E-mail: ${email}`,
-          `WhatsApp: ${whatsapp}`,
-          `Cidade/UF: ${cityState}`,
-          `Categoria: ${category}`,
-          `Registro (CAU/CREA): ${registry}`,
-          `Associado AEAB: ${isMember}`,
-          `--------------------------------------------------`,
-          `DIAS E ATIVIDADES SELECIONADOS:`,
-          ...selectedDays.map((d) => `• ${d}`),
-          `--------------------------------------------------`,
-          `Lembretes:`,
-          `- Assine a lista de presença nas palestras para emissão do certificado.`,
-          `- Visita Técnica à Casa de Barro (12/12) sujeita à confirmação de vaga pela AEAB.`
-        ].join('\n');
-
-        // Alterna visualização para a tela de confirmação
-        form.classList.add('hidden');
-        confirmationScreen.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        showToast('Inscrição confirmada com sucesso!', 'success');
-      });
-
-      // Copiar comprovante usando execCommand (compatível com iFrame)
-      document.getElementById('copy-receipt-btn').addEventListener('click', () => {
-        const tempTextarea = document.createElement('textarea');
-        tempTextarea.value = lastReceiptText;
-        tempTextarea.style.position = 'fixed';
-        tempTextarea.style.opacity = '0';
-        document.body.appendChild(tempTextarea);
-        tempTextarea.select();
-        try {
-          document.execCommand('copy');
-          showToast('Comprovante copiado para a área de transferência!', 'success');
-        } catch (err) {
-          showToast('Não foi possível copiar automaticamente. Use o botão Imprimir/PDF.', 'error');
-        }
-        document.body.removeChild(tempTextarea);
-      });
-
-      // Imprimir / Salvar PDF
-      document.getElementById('print-receipt-btn').addEventListener('click', () => {
-        window.print();
-      });
-
-      // Limpar formulário
-      document.getElementById('clear-form-btn').addEventListener('click', () => {
-        form.reset();
-        document.querySelectorAll('.input-error').forEach((el) => el.classList.remove('input-error'));
-        document.querySelectorAll('[id^="error-"]').forEach((el) => el.classList.add('hidden'));
-        syncOptionCards();
-        showToast('Formulário limpo.', 'info');
-      });
-
-      // Nova inscrição
-      document.getElementById('new-registration-btn').addEventListener('click', () => {
-        form.reset();
-        syncOptionCards();
-        confirmationScreen.classList.add('hidden');
-        form.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-  </script>
-</body>
-</html>
+          li.className = 'flex items-start gap-2 bg-white p-
